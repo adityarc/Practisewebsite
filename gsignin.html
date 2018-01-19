@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gmail Sign in</title>
+	<meta charset="utf-8" />
+    <script>
+        function validate()
+        {
+            if (typeof (Storage) !== "undefined") {
+                //var uid = localStorage.getItem("userid");
+                var em = localStorage.getItem("emailid");
+                //var bd = localStorage.getItem("bdate");
+                var pd = localStorage.getItem("passd");
+                //var mywindow = window.open("", "My Windows", "height-500,width-500");
+                //mywindow.document.write("Username: " + uid + "<br \> <br \>Email ID: " + em + "<br /><br />DOB: " + bd);
+                var e = document.getElementById("email").value;
+                var p = document.getElementById("password").value;
+                if (e == em && p == pd) {
+                    alert("Congratulations! Account Validated!");
+                }
+                else {
+                    alert("Sorry! Account Not Validated!");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div style="margin:0% 0% 0% 30%"><img src="Images/oneacc.PNG" alt="GOOGLE SIGN IN"  /></div>
+    <center>
+        <div id="signbox" style="; background-color:#efe7e7; border-radius:10px; height:750px; width:500px">
+            <form style="text-align:center">
+                <br /><br />
+                <img src="Images/Capture.PNG" /><br /><br /><br /><br />
+                <center>
+                    <table border="0">
+                        <tr>
+                            <td>
+                                <input type="email" id="email" placeholder="email" style="height:35px; width:300px; border-radius:10px" /><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="password" id="password" placeholder="password" style="height:35px; width:300px; border-radius:10px" />
+                                <br /><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <center><input type="submit" value="Sign in" style="background-color:cornflowerblue; border-radius:5px; height:30px; width:100px;" onclick="validate()" /></center>
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+            </form>
+            <input type="checkbox" style="text-align:center" />Stay signed in <br /><br />
+            <a href="gsignup.html">Sign up?</a> 
+        </div>
+    </center>
+         
+</body>
+</html>
