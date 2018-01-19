@@ -9,12 +9,19 @@
             var em = document.getElementById("emailid").value;
             var pswd = document.getElementById("password").value;
             var cpswd = document.getElementById("cpassword").value;
+            var first = document.getElementById("first").value;
+            var last = document.getElementById("last").value;
+            var bdate = document.getElementById("bdate").value;
+            var gen = document.getElementById("gen").value;
             if (typeof (Storage) !== "undefined")
             {
                 localStorage.setItem("userid", uid)
                 localStorage.setItem("emailid", em)
                 localStorage.setItem("passd", pswd)
-                localStorage.setItem("cpassd",cpswd)
+                localStorage.setItem("cpassd", cpswd)
+                localStorage.setItem("bdate", bdate)
+                localStorage.setItem("gen", gen)
+
             }
             else
             {
@@ -42,8 +49,9 @@
             {
                 var uid = localStorage.getItem("userid");
                 var em = localStorage.getItem("emailid");
+                var bd = localStorage.getItem("bdate");
                 var mywindow = window.open("", "My Windows", "height-500,width-500");
-                mywindow.document.write("Username: " + uid + "<br \> <br \>Email ID: " + em);
+                mywindow.document.write("Username: " + uid + "<br \> <br \>Email ID: " + em +"<br /><br />DOB: "+bd );
             }
         }
         function clearAll()
@@ -74,7 +82,7 @@
              
               <tr>
                  <td>
-                     <input type="text" placeholder="first name" required />  <input type="text" placeholder="last name" />
+                     <input type="text" placeholder="First" id="first" required />  <input type="text" placeholder="Last" id="last" />
                  </td>
              </tr>
              
@@ -130,7 +138,7 @@
              
              <tr>
                  <td>
-                     <input type="date" required />
+                     <input type="date" id="bdate" required />
                  </td>
              </tr>
              
@@ -143,7 +151,7 @@
              
              <tr>
                  <td>
-                     <select>
+                     <select id="gen">
                          <option value="male">Male</option>
                          <option value="female">Female</option>
                          <option value="nsay">Prefer not to say</option>
