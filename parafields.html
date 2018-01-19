@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create your Google Account</title>
+    <script>
+        function parafields(uid, first, last)
+        {
+            details = {
+                uname: uid,
+                fname: first,
+                lname: last,
+                fdetails: function () {
+                    return this.uname+" "+this.fname+" "+this.lname
+                }
+            }
+            document.getElementById("d12").innerHTML = details.fdetails();
+        }
+        function storeData()
+        {
+            var uid = document.getElementById("username").value;
+            var em = document.getElementById("emailid").value;
+            var pswd = document.getElementById("password").value;
+            var cpswd = document.getElementById("cpassword").value;
+            var first = document.getElementById("first").value;
+            var last = document.getElementById("last").value;
+            var bdate = document.getElementById("bdate").value;
+            var gen = document.getElementById("gen").value;
+            
+            if (typeof (Storage) !== "undefined")
+            {
+                localStorage.setItem("userid", uid)
+                localStorage.setItem("emailid", em)
+                localStorage.setItem("passd", pswd)
+                localStorage.setItem("cpassd", cpswd)
+                localStorage.setItem("bdate", bdate)
+                localStorage.setItem("gen", gen)
+
+            }
+            else
+            {
+                alert("Your browser doesn't local storage");
+            }
+            parafields(uid, first, last);
+        }
+        function matchpswd()
+        {
+            if(typeof(Storage)!=="undefined")
+            {
+                var pd = localStorage.getItem("passd");
+                var cpd = localStorage.getItem("cpassd");
+                if( pd !== cpd)
+                {
+                    alert("PASSWORDS NOT MATCHING! ");
+                }
+                else {
+                    alert("PASSWORDS VALIDATED");
+                }
+            }
+        }
+        function getData()
+        {
+            if (typeof(Storage)!=="undefined")
+            {
+                var uid = localStorage.getItem("userid");
+                var em = localStorage.getItem("emailid");
+                var bd = localStorage.getItem("bdate");
+                var mywindow = window.open("", "My Windows", "height-500,width-500");
+                mywindow.document.write("Username: " + uid + "<br \> <br \>Email ID: " + em +"<br /><br />DOB: "+bd );
+            }
+        }
+        function clearAll()
+        {
+            if(typeof(Storage)!=="undefined")
+            {
+                localStorage.clear();
+            }
+        }
+    </script>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <a href="https://www.google.com"><img src="Images/google-200x200.7714256da16f.png" alt="google.com" style="height:75px; width:100px;margin:5px 15px 5px 5px" /></a>
+    <h3 style="float:right">
+        <form action="gsigninpage.html">
+            <input type="submit" value="Sign in" />
+        </form>
+    </h3>
+    <form>
+        <h2 style="font-family:Arial">ONE ACCOUNT IS ALL YOU NEED<br /></h2>
+        <h4 style="font-family:Arial">One free account gets you into everything google.</h4>
+        <img src="Images/snip.png" height="700px" width="650px" alt="Alternate Text" />
+        <div style="float:right;height:750px;width:500px;background-color:#cfbcbc;border-radius: 10px 10px 10px 10px">
+            <table style="align-content:center; border-color:black;margin:25px 25px 25px 25px; padding:15px 15px 15px 15px">
+                <tr>
+                    <td>
+                        <br />
+                        Name
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="text" placeholder="First" id="first" required />  <input type="text" placeholder="Last" id="last" />
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <br />
+                        Choose your username
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="text" id="username" placeholder="username@gmail.com" required />
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <br />
+                        Create a password.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <br />
+                        <input type="password" id="password" required />
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <br />
+                        Confirm your password.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="password" id="cpassword" required />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <br />
+                        Birthday
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="date" id="bdate" required />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <br />
+                        Gender
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <select id="gen">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="nsay">Prefer not to say</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <br />
+                        Your Alternate Email Address.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="email" id="emailid" required />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <br />
+                        Location
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <select>
+                            <option value="ind">India</option>
+                            <option value="pak">Pakistan</option>
+                            <option value="sri">Sri Lanka</option>
+                            <option value="ban">Bangladesh</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <br />
+                        <input type="submit" name="fval" value="Submit" onclick="storeData(); matchpswd()" />
+                        <input type="reset" name="res" value="Reset" onclick="clearAll()" />
+                        <input type="button" name="get" value="Get Data" onclick="getData()" />
+                        <br />
+                        <input type="checkbox" name="fval" /> Remember me
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+    <br />
+    <br />
+    <br />
+    <div id="d12"></div>
+
+</body>
+</html>
