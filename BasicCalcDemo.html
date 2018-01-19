@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BASIC CALCULATOR</title>
+	<meta charset="utf-8" />
+    <script>
+        var c;
+       
+        function add()
+        {
+            var a = Number(document.getElementById("x").value);
+            var b = Number(document.getElementById("y").value);
+            c = a + b;
+            solution();
+        }
+        function sub() {
+            var a = Number(document.getElementById("x").value);
+            var b = Number(document.getElementById("y").value);
+            c = a - b;
+            solution();
+        }
+        function mul() {
+            var a = Number(document.getElementById("x").value);
+            var b = Number(document.getElementById("y").value);
+            c = a * b;
+            solution();
+        }
+        function div() {
+            var a = Number(document.getElementById("x").value);
+            var b = Number(document.getElementById("y").value);
+            c = a / b;
+            solution();
+        }
+        function solution()
+        {
+            
+            var d=document.getElementById("D1").innerHTML = c;
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <form>
+            <table border="0">
+                <tr>
+                    <td> X: </td><td> <input type="text" id="x" /></td>
+                </tr>
+                <tr>
+                    <td> Y: </td>
+                    <td> <input type="text" id="y" /></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="add()" >ADD</button></td>
+                    <td><button type="button" onclick="sub()" >SUBTRACT</button></td>
+                    <td><button type="button" onclick="mul()" >MULTIPLY</button></td>
+                    <td><button type="button" onclick="div()" >DIVIDE</button></td>
+                </tr>
+            </table>
+        </form>
+        <div id="D1" style="border:solid; width:150px ; height: 30px " ></div>
+    </center>
+</body>
+</html>
