@@ -7,14 +7,33 @@
         {
             var uid = document.getElementById("username").value;
             var em = document.getElementById("emailid").value;
+            var pswd = document.getElementById("password").value;
+            var cpswd = document.getElementById("cpassword").value;
             if (typeof (Storage) !== "undefined")
             {
                 localStorage.setItem("userid", uid)
-                localStorage.setItem("emailid",em)
+                localStorage.setItem("emailid", em)
+                localStorage.setItem("passd", pswd)
+                localStorage.setItem("cpassd",cpswd)
             }
             else
             {
                 alert("Your browser doesn't local storage");
+            }
+        }
+        function matchpswd()
+        {
+            if(typeof(Storage)!=="undefined")
+            {
+                var pd = localStorage.getItem("passd");
+                var cpd = localStorage.getItem("cpassd");
+                if( pd !== cpd)
+                {
+                    alert("PASSWORDS NOT MATCHING! ");
+                }
+                else {
+                    document.write("PASSWORDS VALIDATED");
+                }
             }
         }
         function getData()
@@ -84,7 +103,7 @@
              <tr>
                  <td>
                      <br />
-                     <input type="password" required />
+                     <input type="password" id="password" required />
                  </td>
              </tr>
              
@@ -98,7 +117,7 @@
              
              <tr>
                  <td>
-                     <input type="password" required />
+                     <input type="password" id="cpassword" required />
                  </td>
              </tr>
              
@@ -141,7 +160,7 @@
              
              <tr>
                  <td>
-                     <input type="email" id="emailid" />
+                     <input type="email" id="emailid" required />
                  </td>
              </tr>
              
@@ -166,8 +185,8 @@
              <tr>
                  <td>
                      <br />
-                     <input type="submit" name="fval" value="Submit" onclick="storeData()"/>
-                     <input type="reset" name="res" value="Reset" onclick="clearAll()"/>
+                     <input type="submit" name="fval" value="Submit" onclick="storeData(); matchpswd()"/>
+                     <input type="reset" name="res" value="Reset" onclick="clearAll()"/> 
                      <input type="button" name="get" value="Get Data" onclick="getData()" />
                      <br />
                      <input type="checkbox" name="fval" /> Remember me
