@@ -39,7 +39,7 @@
                     alert("PASSWORDS NOT MATCHING! ");
                 }
                 else {
-                    document.write("PASSWORDS VALIDATED");
+                    alert("PASSWORDS VALIDATED");
                 }
             }
         }
@@ -66,7 +66,11 @@
 </head>
 <body>
     <a href="https://www.google.com"><img src="Images/google-200x200.7714256da16f.png" alt="google.com" style="height:75px; width:100px;margin:5px 15px 5px 5px"/></a>
-    <h3 style="float:right"><input type="submit" name="signin" value="sign in" /></h3>
+    <h3 style="float:right">
+        <form action="gsigninpage.html">
+            <input type="submit" value="Sign in" />
+        </form>
+    </h3>
     <form>
         <h2 style="font-family:Arial">ONE ACCOUNT IS ALL YOU NEED<br /></h2>
         <h4 style="font-family:Arial">One free account gets you into everything google.</h4>
