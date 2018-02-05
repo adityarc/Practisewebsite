@@ -3,6 +3,18 @@
 <head>
     <title>Create your Google Account</title>
     <script>
+	    function parafields(uid, first, last)
+        {
+            details = {
+                uname: uid,
+                fname: first,
+                lname: last,
+                fdetails: function () {
+                    return "username: "+this.uname+" belongs to "+this.fname+" "+this.lname
+                }
+            }
+            document.getElementById("d12").innerHTML = details.fdetails();
+        }
         function storeData()
         {
             var uid = document.getElementById("username").value;
@@ -27,6 +39,7 @@
             {
                 alert("Your browser doesn't local storage");
             }
+		parafields(uid, first, last);
         }
         function matchpswd()
         {
